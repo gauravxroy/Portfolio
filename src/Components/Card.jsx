@@ -9,7 +9,7 @@ import {
     useColorModeValue,
     Icon,
     chakra,
-    Tooltip, Text
+    Tooltip, Text, keyframes,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { FiLink, FiShoppingCart } from 'react-icons/fi'
@@ -24,16 +24,26 @@ const data = {
     numReviews: 34,
 }
 
-const badgeItem = {
-    stack1: 'React',
-    stack2: 'Chakra UI',
-}
 
 
-function Rating({ rating, numReviews }) {
+const blink = keyframes`
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity:0.8;
+  }
+  100% {
+   opacity:0.2;
+  }
+ `
+
+
+
+function Discription({ rating, numReviews }) {
     return (
         <Box display="flex" alignItems="center">
-            <Box as="span" ml="2" color="gray.600" fontSize="sm">
+            <Box as="span" color="gray.600" fontSize="md">
                 <Text>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ipsam porro nostrum non delectus expedita.
                 </Text>
@@ -46,6 +56,7 @@ function ProductAddToCart(props) {
     return (
         <Flex p={50} w="full" alignItems="center" justifyContent="center">
             <Box
+                overflow={'hidden'}
                 bg={useColorModeValue('white', 'gray.800')}
                 maxW="sm"
                 borderWidth="1px"
@@ -57,21 +68,31 @@ function ProductAddToCart(props) {
 
                 }
 
+
+
+
+
                 }
             >
 
                 {data.isNew && (
-                    <Circle size="10px" position="absolute" top={2} right={2} bg="green.300" />
+                    <Circle size="10px" position="absolute" top={2} right={2} bg="green.500"
+                        animation={`${blink} 4s linear infinite`}
+                    />
 
                 )}
 
-                <Image src={data.imageURL} alt={`Picture of ${data.name}`} roundedTop="lg"
+                <Image
+
+                    src={data.imageURL} alt={`Picture of ${data.name}`} roundedTop="lg" roundedBottom={'sm'}
+                    transition={'transform 0.3s ease 0.2s'}
+                    overflow={'hidden'}
                     _hover={{
-                        filter: 'opacity(90%)'
+                        transform: "scale(1.02)",
+                        transition: 'ease-in-out 0.5s',
+                        filter: 'grayscale(20%)',
+                    }}
 
-                    }
-
-                    }
                 />
 
                 <Box p="6">
@@ -107,7 +128,7 @@ function ProductAddToCart(props) {
                     </Flex>
 
                     <Flex justifyContent="space-between" alignContent="center">
-                        <Rating rating={data.rating} numReviews={data.numReviews} />
+                        <Discription />
                         <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
                             <Box as="span" color={'gray.600'} fontSize="lg">
                                 £
@@ -117,7 +138,7 @@ function ProductAddToCart(props) {
                     </Flex>
                 </Box>
             </Box>
-        </Flex>
+        </Flex >
     )
 }
 
