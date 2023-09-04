@@ -158,6 +158,9 @@ function Home() {
                 <Box >
                     <Card Head1="Clone" />
                 </Box>
+                <Box >
+                    <Card Head1="Clone" />
+                </Box>
 
             </Flex>
             <Divider />
