@@ -1,0 +1,127 @@
+'use client'
+
+import {
+    Box,
+    Center,
+    useColorModeValue,
+    Heading,
+    Text,
+    Stack,
+    Image, AspectRatio, Button, Tag, IconButton
+} from '@chakra-ui/react'
+import Home from '../Pages/Home'
+import video from '../Assets/video.mp4'
+import { DiGithub } from 'react-icons/di'
+const IMAGE =
+ 
+
+function Card(props) {
+    return (
+        <Center py={12}>
+            <Box
+                role={'group'}
+                p={6}
+                maxW={'330px'}
+                w={'full'}
+                bg={useColorModeValue('white', 'gray.800')}
+                boxShadow={'2xl'}
+                rounded={'lg'}
+                pos={'relative'}
+                zIndex={1}
+                _hover={{
+                    cursor: 'pointer'
+                }}
+            >
+
+                <Box
+                    rounded={'lg'}
+                    mt={-12}
+                    pos={'relative'}
+                    height={'230px'}
+                    _after={{
+                        transition: 'all .3s ease',
+                        content: '""',
+                        w: 'full',
+                        h: 'full',
+                        pos: 'absolute',
+                        top: 5,
+                        left: 0,
+                        // backgroundImage: `url(${IMAGE})`,
+                        filter: 'blur(10px)',
+                        zIndex: -1,
+                    }}
+                    _groupHover={{
+                        _after: {
+                            filter: 'blur(15px)',
+
+                        },
+                    }}>
+
+
+                    {/* <AspectRatio height={230}
+                        width={282} ratio={1}>
+                        <video autoPlay loop src={video}  ></video>
+
+                    </AspectRatio> */}
+
+                    <Image
+                        rounded={'lg'}
+                        height={230}
+                        width={282}
+                        objectFit={'cover'}
+                        src={IMAGE}
+                        alt="#"
+                        _hover={{
+                            filter: 'opacity(90%)'
+                        }}
+                    />
+                </Box>
+                <Stack pt={10} align={'center'}>
+
+                    <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+                        {props.Head1}
+                    </Heading>
+                    <Stack direction={{ base: 'row', md: 'row' }} spacing={4}>
+                        <Tag>
+                            React
+                        </Tag>
+                        <Tag>
+                            Chakra Ui
+                        </Tag>
+                        <Tag>
+                            Chakra Ui
+                        </Tag>
+
+
+
+                    </Stack>
+                    <Text color={'gray.500'} fontSize={'md'} textTransform={'uppercase'}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis at quae natus expedita laboriosam!
+                    </Text>
+                    <Stack direction={'row'} align={'center'}>
+                        {/* 
+                        <Button rounded={'full'}
+                            variant={'solid'}
+                            colorScheme={'blue'}
+                            size={'sm'}
+                            color={'whiteAlpha.900'}
+                            mr={4}>
+                            Live
+                        </Button> */}
+                        <IconButton
+                            variant='outline'
+                            // colorScheme='teal'
+                            aria-label='Call Sage'
+                            fontSize='20px'
+                            icon={<DiGithub />}
+                        />
+
+                    </Stack>
+                </Stack>
+            </Box>
+        </Center>
+    )
+}
+
+export default Card;
+
