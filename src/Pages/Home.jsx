@@ -9,17 +9,51 @@ import {
     Stack,
     Text,
     useBreakpointValue,
-    color, HStack, VStack, Box, Divider
+    Box, Divider
 } from '@chakra-ui/react'
-import { FaFile } from 'react-icons/fa'
+// import { FaFile } from 'react-icons/fa'
+// import AOS from 'aos';
+
+
+
+
 import { DiGithubBadge } from 'react-icons/di'
 import Resume from '../Assets/Resume.pdf'
 import ImgGaurav from '../Assets/gaurav-profile.jpg'
 import ColorModeSwitcher from '../ColorModeSwitcher';
 import Card from '../Components/Card'
+
 function Home() {
+
+    // #TODO: create object for card details
+    // const cardDetail = [{
+    //     techStack: 'React',
+    //     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minus?",
+    // },
+    // {
+    //     techStack: 'Chakra UI',
+    //     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minus?",
+
+    // },
+    // {
+    //     techStack: 'Tailwind Css',
+    //     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minus?",
+
+    // },
+    // {
+    //     techStack: 'next.js',
+    //     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minus?",
+
+    // }
+
+
+    // ]
+
+
+
     return (
         <>
+
             <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
                 <Flex p={8} flex={1} align={'center'} justify={'center'}>
                     <Stack spacing={6} w={'full'} maxW={'lg'}>
@@ -27,6 +61,7 @@ function Home() {
                             <Text
                                 as={'span'}
                                 position={'relative'}
+
                                 _after={{
                                     content: "''",
                                     width: 'full',
@@ -36,15 +71,18 @@ function Home() {
                                     left: 0,
                                     bg: 'blue.400',
                                     zIndex: -1,
+
+
                                 }}>
+
                                 Hey!  I Am Gaurav Roy
                             </Text>
                             <br />{' '}
-                            <Text color={'blue.400'} as={'span'}>
+                            <Text color={'blue.400'} as={'span'} >
                                 Software Developer
                             </Text>{' '}
                         </Heading>
-                        <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+                        <Text fontSize={{ base: 'md', lg: 'lg' }} fontWeight={"medium"} color={'gray.500'} data-aos="fade-right">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, modi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quibusdam.
                         </Text>
                         <Stack direction={{ base: 'row', md: 'row' }} spacing={4}>
@@ -113,7 +151,7 @@ function Home() {
                         // transitionProperty={' transform .2s;'}
                         _hover={{
                             transition: 'ease-in 0.8s',
-                            filter: 'grayscale(60%)',
+                            filter: 'grayscale(40%)',
                             cursor: 'pointer',
 
                             // transform: 'scale(1.2)'
@@ -148,18 +186,23 @@ function Home() {
                 </Text>
             </Heading>
             <Flex minH={'100vh'} flex={1} align={'center'} justify={'center'} wrap={'wrap'} justifyContent={'space-evenly'}>
-
+                {/* ##TODO:map the card dynamically */}
+                {/* <Box >
+                    {cardDetail.map((data, index) => (
+                        <Card key={index} header={data.techStack} body={data.body} />
+                    ))}
+                </Box> */}
                 <Box >
-                    <Card stack1="React.js" />
+                    <Card Head1='app' stack1="React.js" />
                 </Box>
                 <Box >
-                    <Card stack1="Next.js" />
+                    <Card Head1='app' stack1="Next.js" />
                 </Box>
                 <Box >
-                    <Card Head1="Clone" />
+                    <Card Head1="Clone" stack1='Tailwind' />
                 </Box>
                 <Box >
-                    <Card Head1="Clone" />
+                    <Card Head1="Clone" stack1='Chakra UI' />
                 </Box>
 
             </Flex>

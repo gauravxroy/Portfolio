@@ -12,8 +12,12 @@ import {
     Tooltip, Text, keyframes,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
+import { FaGithub } from 'react-icons/fa'
 import { FiLink, FiShoppingCart } from 'react-icons/fi'
 
+
+// ##TODO:create title/name object for the cards
+// ##TODO:create description for the cards 
 const data = {
     isNew: true,
     imageURL:
@@ -40,12 +44,14 @@ const blink = keyframes`
 
 
 
-function Discription({ rating, numReviews }) {
+function Discription({ rating, numReviews, body }) {
     return (
         <Box display="flex" alignItems="center">
-            <Box as="span" color="gray.600" fontSize="md">
+            <Box as="span" color="gray.600" fontSize="md" fontWeight={"medium"}>
                 <Text>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ipsam porro nostrum non delectus expedita.
+                    {/* ##TODO:map the description for different card */}
+                    {/* {body} */}
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, aut.
                 </Text>
             </Box>
         </Box>
@@ -54,7 +60,9 @@ function Discription({ rating, numReviews }) {
 
 function ProductAddToCart(props) {
     return (
-        <Flex p={50} w="full" alignItems="center" justifyContent="center">
+        <Flex p={50} w="full" alignItems="center" justifyContent="center" data-aos="zoom-in"
+            data-aos-duration={'1100'}
+        >
             <Box
                 overflow={'hidden'}
                 bg={useColorModeValue('white', 'gray.800')}
@@ -63,9 +71,11 @@ function ProductAddToCart(props) {
                 rounded="lg"
                 shadow="lg"
                 position="relative"
+                transition='box-shadow 0.3s ease'
                 _hover={{
-                    cursor: 'pointer'
+                    cursor: 'pointer',
 
+                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)'
                 }
 
 
@@ -90,7 +100,7 @@ function ProductAddToCart(props) {
                     _hover={{
                         transform: "scale(1.02)",
                         transition: 'ease-in-out 0.5s',
-                        filter: 'grayscale(20%)',
+                        filter: 'grayscale(10%)',
                     }}
 
                 />
@@ -98,6 +108,7 @@ function ProductAddToCart(props) {
                 <Box p="6">
                     <Box display="flex" alignItems="baseline">
                         {data.isNew && (
+                            // ##TODO:map the badge
                             <Badge Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
                                 {props.stack1}
                             </Badge>
@@ -111,6 +122,8 @@ function ProductAddToCart(props) {
                             as="h4"
                             lineHeight="tight"
                             isTruncated>
+                            {/* ##TODO:map the card title details */}
+                            {/* {props.head1} */}
                             {data.name}
 
                         </Box>
@@ -130,10 +143,9 @@ function ProductAddToCart(props) {
                     <Flex justifyContent="space-between" alignContent="center">
                         <Discription />
                         <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                            <Box as="span" color={'gray.600'} fontSize="lg">
-                                £
+                            <Box as="span" color={'gray.600'} fontSize="2xl">
+                                <a href="http://"><FaGithub /></a>
                             </Box>
-                            {data.price.toFixed(2)}
                         </Box>
                     </Flex>
                 </Box>
