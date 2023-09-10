@@ -9,11 +9,12 @@ import {
     useColorModeValue,
     Icon,
     chakra,
-    Tooltip, Text, keyframes,
+    Tooltip, Text, keyframes, color,
 } from '@chakra-ui/react'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import { FaGithub } from 'react-icons/fa'
 import { FiLink, FiShoppingCart } from 'react-icons/fi'
+import Colors from './Colors'
 
 
 // ##TODO:create title/name object for the cards
@@ -76,9 +77,9 @@ function ProductAddToCart(props) {
                     cursor: 'pointer',
 
                     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)'
-                }
+                },
 
-
+             
 
 
 
@@ -143,7 +144,10 @@ function ProductAddToCart(props) {
                     <Flex justifyContent="space-between" alignContent="center">
                         <Discription />
                         <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                            <Box as="span" color={'gray.600'} fontSize="2xl">
+                            <Box as="span" color={'gray.400'} fontSize="2xl" transitionDelay={'.2s'} _hover={{
+                                color: 'gray.200',
+                                transition: '.8s ease-in-out'
+                            }}>
                                 <a href="http://"><FaGithub /></a>
                             </Box>
                         </Box>

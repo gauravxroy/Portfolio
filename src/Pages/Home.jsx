@@ -22,7 +22,8 @@ import Resume from '../Assets/Resume.pdf'
 import ImgGaurav from '../Assets/gaurav-profile.jpg'
 import ColorModeSwitcher from '../ColorModeSwitcher';
 import Card from '../Components/Card'
-
+import Contact from '../Components/Contact'
+import Footer from '../Components/Footer'
 function Home() {
 
     // #TODO: create object for card details
@@ -160,6 +161,7 @@ function Home() {
                 </Flex>
             </Stack>
             <Divider />
+
             <Heading as='h4' size='md'
                 textAlign={'center'}
                 mt={'2'}
@@ -168,6 +170,7 @@ function Home() {
 
 
             >
+
                 <Text
                     as={'span'}
                     position={'relative'}
@@ -205,8 +208,17 @@ function Home() {
                     <Card Head1="Clone" stack1='Chakra UI' />
                 </Box>
 
+
             </Flex>
             <Divider />
+            <Flex minH={'100vh'} flex={1} align={'center'} justify={'center'} wrap={'wrap'} justifyContent={'space-evenly'}>
+
+                <Contact />
+            </Flex>
+            <Box>
+                <Footer />
+
+            </Box>
 
         </>
     )
